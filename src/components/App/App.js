@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import moment from "moment";
-import Header from "components/Header/Header";
-import CalendarGrid from "components/CalendarGrid/CalendarGrid";
+import { Header } from "../../components";
+import { CalendarGrid } from "../../components";
 import { Wrapper } from "./App.styled";
 
 export const App = () => {
@@ -18,6 +18,7 @@ export const App = () => {
     return parsed ? moment(parsed) : moment()
   });
 
+ 
   const [value, setValue] = useState(null);
 
   useEffect(() => {
@@ -27,18 +28,11 @@ export const App = () => {
 
   
   const firstDay = currentDay.clone().startOf("month").startOf("week");
-  
+
   const prevHandler = () => setCurrentDay(prev => prev.clone().subtract(1, "month"));;
   const todayHandler = () => setCurrentDay(moment());;
   const nextHandler = () => setCurrentDay(prev => prev.clone().add(1, "month"));;
-
-  const selectDataHandler = (value) => {
-    if(value === null) {
-      setCurrentDay(moment())
-    } else {
-      setCurrentDay(value);
-    };
-  };
+  const selectDataHandler = (value) => value === null ? setCurrentDay(moment()) : setCurrentDay(value);
 
   return (
     <Wrapper>

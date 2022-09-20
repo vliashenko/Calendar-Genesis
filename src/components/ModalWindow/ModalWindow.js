@@ -1,7 +1,6 @@
-import React from 'react';
 import { createPortal } from "react-dom";
-import PropTypes from "prop-types";
 import { Overlay, Modal, CloseButton } from "./ModalWindow.styled.js";
+import PropTypes from "prop-types";
 
 const modalRoot = document.querySelector("#modal-root");
 
@@ -24,7 +23,7 @@ const ModalWindow = ({ children, onClose }) => {
 };
 
 Modal.proptypes = {
-    url: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     onclose: PropTypes.func.isRequired
 }
 

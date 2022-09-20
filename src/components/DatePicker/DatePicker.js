@@ -2,12 +2,8 @@ import TextField from '@mui/material/TextField';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker as DataPicker } from '@mui/x-date-pickers/DatePicker';
-
-const style = {
-  width: "16%",
-  color: "grey",
-  size: "small"
-}
+import { style } from "./DatePicker.styled";
+import PropTypes from "prop-types";
 
 const DatePicker = ({ value, setValue, selectDataHandler }) => {
   
@@ -31,5 +27,11 @@ const DatePicker = ({ value, setValue, selectDataHandler }) => {
     </LocalizationProvider>
   );
 };
+
+DatePicker.propTypes = {
+  value: PropTypes.object,
+  setValue: PropTypes.func.isRequired,
+  selectDataHandler: PropTypes.func.isRequired
+}
 
 export default DatePicker;

@@ -1,5 +1,6 @@
 import moment from "moment";
 import { GridContainer, GridCell, RowInCell , DayWrapper, CurrentDay, DayTask } from "./CalendarGrid.styled";
+import PropTypes from "prop-types";
 
 const CalendarGrid = ({ firstDay, currentDay, events }) => {
 
@@ -55,5 +56,17 @@ const CalendarGrid = ({ firstDay, currentDay, events }) => {
         </GridContainer>
     );
 };
+
+CalendarGrid.propTypes = {
+    firstDay: PropTypes.object.isRequired,
+    currentDay: PropTypes.object.isRequired,
+    events: PropTypes.arrayOf(
+        PropTypes.shape({
+            date: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+        })
+    )
+}
 
 export default CalendarGrid;
