@@ -50,6 +50,7 @@ const CalendarGrid = ({ handleDelete, firstDay, currentDay, events,  handleUpdat
                             </RowInCell>
                             {
                                events
+                               .sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0))
                                .filter(ev => moment(ev.date).format("X") >= day.format("X") && moment(ev.date).format("X") <= day.clone().endOf("day").format("X"))
                                 .map(ev => (
                                     <DayTask 
