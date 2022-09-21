@@ -5,13 +5,19 @@ import PropTypes from "prop-types";
 const modalRoot = document.querySelector("#modal-root");
 
 const ModalWindow = ({ children, onClose }) => {
+    
+    const handleClick = () => {
+        onClose();
+        localStorage.setItem("UpdateFormValues", JSON.stringify(""));
+    } 
+    
     return createPortal (
         <Overlay>
             <Modal 
                 onClick={(e) => e.stopPropagation()}
             >
                 <CloseButton
-                    onClick={onClose}
+                    onClick={handleClick}
                 >
                     &times;
                 </CloseButton>
@@ -24,7 +30,7 @@ const ModalWindow = ({ children, onClose }) => {
 
 Modal.proptypes = {
     children: PropTypes.node.isRequired,
-    onclose: PropTypes.func.isRequired
+    onClose: PropTypes.func.isRequired
 }
 
 export default ModalWindow;

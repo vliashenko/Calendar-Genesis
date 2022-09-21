@@ -1,10 +1,20 @@
+import useCalendarGridHook from "hooks/useCalendarGridHook";
+import ModalWindow from "components/ModalWindow/ModalWindow";
+import UpdateForm from "components/UpdateForm/UpdateForm";
 import moment from "moment";
 import { GridContainer, GridCell, RowInCell , DayWrapper, CurrentDay, DayTask } from "./CalendarGrid.styled";
 import PropTypes from "prop-types";
 
-const CalendarGrid = ({ firstDay, currentDay, events }) => {
+const CalendarGrid = ({ handleDelete, firstDay, currentDay, events,  handleUpdateEvent }) => {
 
-    const totalDays = 42;
+    const {
+        modalIsOpen,
+        currentEvent,
+        handleClose,
+        handleOpen,
+        totalDays
+    } = useCalendarGridHook();
+
     const day = firstDay.clone();
     const daysArray = [...Array(totalDays)].map(() => day.add(1, "day").clone());
     
@@ -44,6 +54,7 @@ const CalendarGrid = ({ firstDay, currentDay, events }) => {
                                 .map(ev => (
                                     <DayTask 
                                         key={ev.id}
+                                        onClick={() => handleOpen(ev.id)}
                                     >
                                         {ev.title}
                                     </DayTask>
@@ -53,6 +64,21 @@ const CalendarGrid = ({ firstDay, currentDay, events }) => {
                    ) 
                 })
             }
+            {
+                modalIsOpen &&
+                    <ModalWindow 
+                        onClose={handleClose}
+                    >
+                        <UpdateForm
+                            onClose={handleClose}
+                            handleUpdateEvent={handleUpdateEvent}
+                            handleDelete={handleDelete}
+                            events={events}
+                            currentEvent={currentEvent}
+                        />
+                    </ModalWindow>
+            }
+
         </GridContainer>
     );
 };
@@ -62,11 +88,14 @@ CalendarGrid.propTypes = {
     currentDay: PropTypes.object.isRequired,
     events: PropTypes.arrayOf(
         PropTypes.shape({
+            time: PropTypes.string.isRequired,
             date: PropTypes.string.isRequired,
             id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
         })
-    )
+    ).isRequired,
+    handleDelete: PropTypes.func.isRequired,
+    handleUpdateEvent: PropTypes.func.isRequired
 }
 
 export default CalendarGrid;

@@ -1,10 +1,10 @@
-import useAddFormHook from "hooks/useAddFormHook.js";
+import useAddFormHook from "hooks/useAddFormHook.jsx";
 import { StyledForm, Title, StyledField, Button, DateAndTime, Fields,style } from "./AddForm.styled.js"
 import PropTypes from "prop-types";
 
 const AddForm = ({ setEvents, onClose }) => {
 
-   const { title,desc,date,time, handleChange, handleSubmit } = useAddFormHook();
+   const { title, desc, date, time, handleChange, handleSubmit } = useAddFormHook();
 
     return (
             <StyledForm onSubmit={(e) =>handleSubmit(e, setEvents, onClose)}>
