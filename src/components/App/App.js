@@ -1,10 +1,10 @@
-import useAppHook from "hooks/useAppHook.jsx";
-import { Header } from "../../components";
-import { CalendarGrid } from "../../components";
-import { Wrapper } from "./App.styled";
+import React from 'react';
+import useAppHook from 'hooks/useAppHook.jsx';
+import { Header } from '../../components';
+import { CalendarGrid } from '../../components';
+import { Wrapper } from './App.styled';
 
 export const App = () => {
-
   const {
     setEvents,
     currentDay,
@@ -17,18 +17,20 @@ export const App = () => {
     handleDelete,
     handleUpdateEvent,
     firstDay,
-    events
+    events,
+    // handleAddEvent,
   } = useAppHook();
 
   return (
     <Wrapper>
       <Header
+        // handleAddEvent={handleAddEvent}
         setEvents={setEvents}
         currentDay={currentDay}
         prevHandler={prevHandler}
         todayHandler={todayHandler}
         nextHandler={nextHandler}
-        value={value} 
+        value={value}
         setValue={setValue}
         selectDataHandler={selectDataHandler}
       />

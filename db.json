@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "title": "move the lawn and shit",
+      "desc": "damn",
+      "date": "09.29.2022",
+      "createdAt": "09.29.2022 20:50 pm",
+      "id": "1",
+      "updatedAt": "09.29.2022 21:25 pm",
+      "time": "10:00"
+    },
+    {
+      "title": "addLOL",
+      "desc": "newnewnew",
+      "date": "09.29.2022",
+      "time": "",
+      "id": "TVcAUNM5P",
+      "createdAt": "09.29.2022 21:40 pm",
+      "updatedAt": "09.29.2022 21:42 pm"
+    }
+  ]
+}
