@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Calendar-Genesis/static/css/main.7acaea2f.css",
-    "main.js": "/Calendar-Genesis/static/js/main.4ed1db8f.js",
+    "main.js": "/Calendar-Genesis/static/js/main.7b50f9fd.js",
     "index.html": "/Calendar-Genesis/index.html",
     "main.7acaea2f.css.map": "/Calendar-Genesis/static/css/main.7acaea2f.css.map",
-    "main.4ed1db8f.js.map": "/Calendar-Genesis/static/js/main.4ed1db8f.js.map"
+    "main.7b50f9fd.js.map": "/Calendar-Genesis/static/js/main.7b50f9fd.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.4ed1db8f.js"
+    "static/js/main.7b50f9fd.js"
   ]
 }
